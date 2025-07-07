@@ -40,23 +40,6 @@ let short_description = description ? description.replace(/(.{85})..+/, '$1...')
 
 		<div class="flex items-center justify-between">
 			<Button href={url} title="View case" icon="ph:caret-right-bold" size="md" border />
- 
-			{
-				languages && (
-					<div class="flex gap-1.5">
-						{languages.map((language) => (
-							<>
-								<Tooltip title={language} text_size="text-xs">
-									<Icon
-										name={language}
-										className="w-7 h-7 text-slate-500  opacity-20 hover:opacity-100 grayscale hover:grayscale-0 hover:transition-all duration-300"
-									/>
-								</Tooltip>
-							</>
-						))}
-					</div>
-				)
-			}
 		</div>
 	</div>
 </article>

@@ -5,7 +5,7 @@ export default {
 	logo: '/path/to/logo.png',
 	contactInfo: {
 		email: 'iofesty@gmail.com',
-		phone: '+1234567890'
+		phone: '+37361189770'
 		// other contact info
 	},
 	stack: [

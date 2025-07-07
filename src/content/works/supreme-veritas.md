@@ -23,7 +23,7 @@ languages:
 review:
   author: 'Ahmed'
   avatar: '/images/ahmed.avif'
-  message: "From start to finish, Tudor has been an incredible support, going above and beyond our expectations every step of the way. What stood out was not just the personal and friendly experience, but also Tudor's knack for capturing and expressing our core messages in such imaginative and creative ways. It felt like Tudor truly grasped our client's website needs, complementing our vision flawlessly. Reliable, professional, and incredibly easy to collaborate with, Tudor earns my highest recommendation. We're eager to keep our collaboration going strong!"
+  message: 'Tudor was a fantastic collaborator from start to finish – reliable, professional, and easy to work with. He quickly understood our vision and translated it into a creative, client-focused website that exceeded expectations. Highly recommended!'
 timeline:
   - 1:
     date: '4 January 2021'
@@ -61,7 +61,7 @@ timeline:
 
 I was contacted to create the company's website. The logo and content were ready-made and were provided by Supreme Veritas. The design was chosen a wordpress template, I chose not to buy it but to recreate it in Elementor and adapted it to the style of the brand.
 
-### To create this website I used the following core plugins:
+### Plugins I used to create this website:
 
 - **Elementor pro** - for creating the entire website
 - **Ele Custom Skin** - to create custom design for Pods custom post types archives. At the time of wesite creation, Elementor Pro did not have this functionality as it does now.
