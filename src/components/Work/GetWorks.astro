@@ -15,7 +15,13 @@ const works = (
 
 <div class="grid gap-5 sm:grid-cols-1 sm:gap-6 md:grid-cols-2">
 	{
-		works.map((work) => (
+		works
+		.slice() // evită mutarea originalului
+		.sort((a, b) => {
+			if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+			return a.data.title.localeCompare(b.data.title);
+			})
+		.map((work) => (
 			<WorkPost
 				url={`/works/${work.slug}`}
 				stacks={work.data.stacks}
