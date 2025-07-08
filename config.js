@@ -30,9 +30,29 @@ export default {
 			description: 'Utility-first CSS framework'
 		},
 		{
-			iconName: 'astro',
-			title: 'Astro',
-			description: 'Static site generator'
+			iconName: 'docker',
+			title: 'Docker',
+			description: 'Containerization platform'
+		},
+		{
+			iconName: 'ubuntu',
+			title: 'Ubuntu',
+			description: 'Linux distribution'
+		},
+		{
+			iconName: 'redis',
+			title: 'Redis',
+			description: 'Vector Database'
+		},
+		{
+			iconName: 'github',
+			title: 'Github',
+			description: 'Git platform'
+		},
+		{
+			iconName: 'nginx',
+			title: 'Nginx',
+			description: 'Reverse proxy'
 		},
 		{
 			iconName: 'livewire',
