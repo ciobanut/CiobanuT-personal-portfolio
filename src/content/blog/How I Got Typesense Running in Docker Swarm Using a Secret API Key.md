@@ -102,8 +102,6 @@ entrypoint: >
 ### Full working `docker-compose.yml` for Swarm:
 
 ```yaml
-version: '3.8'
-
 services:
   typesense:
     image: 'typesense/typesense:26.0'
@@ -119,6 +117,26 @@ services:
 secrets:
   typesense_api_key:
     file: ./typesense_api_key.txt
+
+volumes:
+  typesense_data:
+```
+
+
+### (update) Full working `docker-compose.yml` for Docker Compose:
+
+```yaml
+services:
+  typesense:
+    image: 'typesense/typesense:26.0'
+    volumes:
+      - typesense_data:/data
+    env_file:
+      - .env # in this file is defined the TYPESENSE_API_KEY
+    entrypoint: >
+      sh -c "exec /opt/typesense-server --data-dir /data --api-key=$${TYPESENSE_API_KEY}"
+    ports:
+      - '8108:8108'
 
 volumes:
   typesense_data:
