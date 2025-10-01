@@ -2,7 +2,7 @@
 layout: '../../layouts/SingleWorkLayout.astro'
 title: 'Website for a Company from Iraq'
 isDraft: false
-pubDate: '18-11-2023'
+pubDate: '11-01-2021'
 year: 2021
 website: 'https://supremeveritas.com/'
 image:
@@ -16,6 +16,7 @@ business_niche: 'corporate'
 deadline: 'one month'
 stacks:
   - wordpress
+  - 'elementor'
 languages:
   - 'html5'
   - 'css3'

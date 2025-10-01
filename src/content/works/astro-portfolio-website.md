@@ -2,7 +2,7 @@
 layout: '../../layouts/SingleWorkLayout.astro'
 title: 'Portfolio website build with Astro js'
 isDraft: false
-pubDate: '17-11-2023'
+pubDate: '11-17-2023'
 year: 2023
 website: 'https://ciobanut.com/'
 image:

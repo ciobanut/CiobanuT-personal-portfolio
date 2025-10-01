@@ -115,7 +115,7 @@ export default {
 		{
 			question: 'What services do you offer exactly?',
 			answer:
-				'I studied at the Informatics College in Chisinau. There I took my first steps in the world of programming. I took courses and made personal projects and websites for my clients on a freelance basis. '
+				'I offer services for converting design into functional code, i.e. into a website. That is - I create websites on WordPress or Laravel or Astro js.'
 		},
 		{
 			question: 'What education do you have?',

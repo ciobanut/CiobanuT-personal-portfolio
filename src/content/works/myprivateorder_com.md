@@ -2,17 +2,20 @@
 layout: '../../layouts/SingleWorkLayout.astro'
 title: 'A platform where navigators meet service providers'
 isDraft: false
-pubDate: '08-07-2025'
+pubDate: '06-08-2025'
 year: 2025
 website: 'https://myprivateorder.com'
 image:
   src: '/images/works/myprivateorder.com.avif'
   alt: 'Astro website'
-description: 'A global platform built for sailors to easily discover and connect with local service providers in the ports where they anchor. Trusted reviews, personalized profiles, and real-time access to essential port services.
+description: 'A global platform built for sailors to easily discover and connect with local service providers in the ports where they anchor. Trusted reviews, personalized profiles, and real-time access to essential port services.'
 
-'
+review:
+  author: 'Petrian Duceac'
+  avatar: '/images/petrian.png'
+  message: 'I was looking for a custom application developer to create a web application for seafarers, and Tudor nailed it! The functionality and design are exactly what we were looking for. Great developer to work with.'
 client:
-  name: 'Petrian Duceac'
+  name: 'MyPrivateOrder.com'
   logo: '/images/works/myprivateorder.com.svg'
 business_niche: 'marine'
 deadline: 'six months'
@@ -34,7 +37,7 @@ timeline:
   - 98:
     date: 'august 2024'
     title: 'Learning Laravel'
-    desc: 'I should mention that before this project I had only built websites on WordPress. I didn''t know Laravel. But I was determined that it was time to learn it. I took courses on Laracast, YouTube, the official documentation and Google. Because of this it took me longer to create it.'
+    desc: "I should mention that before this project I had only built websites on WordPress. I didn't know Laravel. But I was determined that it was time to learn it. I took courses on Laracast, YouTube, the official documentation and Google. Because of this it took me longer to create it."
   - 98:
     date: 'september 2024'
     title: 'I started building the platform'
@@ -66,7 +69,7 @@ timeline:
   - 99:
     date: 'Ongoing'
     title: 'Maintenance and feature updates'
-    desc: "The platform continues to evolve. I’m actively maintaining it, improving the user experience, fixing bugs, and developing new features based on user feedback and real-world needs."
+    desc: 'The platform continues to evolve. I’m actively maintaining it, improving the user experience, fixing bugs, and developing new features based on user feedback and real-world needs.'
 ---
 
 This is a web platform designed to connect sailors from around the world with trusted service providers located in the ports where they dock. The platform offers a seamless experience for both sailors and providers.
