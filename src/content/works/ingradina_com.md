@@ -6,13 +6,13 @@ pubDate: '01-01-2020'
 year: 2010
 website: 'https://web.archive.org/web/20110603230241/http://www.ingradina.com:80/'
 image:
-  src: '/images/works/ingradina2.jpg'
-  alt: 'Supreme Veritas'
+  src: '/images/works/ingradina.avif'
+  alt: 'ingradina.com'
 description: 'In 2010, after finishing my studies in Computer Science, I had a strong desire to create a website - a catalog with information about growing edible plants in the garden. The result was this wonderful website that even after 15 years looks fresh and not at all outdated.'
 client:
-  name: 'Supreme Veritas'
+  name: 'Tudor'
   logo: '/images/works/ingradina.ico'
-business_niche: 'corporate'
+business_niche: 'gardening'
 deadline: 'few months'
 stacks:
   - wordpress

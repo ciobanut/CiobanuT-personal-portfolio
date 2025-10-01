@@ -12,7 +12,7 @@ description: 'A global platform built for sailors to easily discover and connect
 
 review:
   author: 'Petrian Duceac'
-  avatar: '/images/petrian.png'
+  avatar: '/images/petrian.avif'
   message: 'I was looking for a custom application developer to create a web application for seafarers, and Tudor nailed it! The functionality and design are exactly what we were looking for. Great developer to work with.'
 client:
   name: 'MyPrivateOrder.com'
