@@ -4,6 +4,7 @@ import { ViewTransitions } from 'astro:transitions'
 import Header from '../Base/Header.astro'
 import Footer from '../Base/Footer.astro'
 import Navigation from './Navigation/Navigation.astro'
+import Metrika from '@components/Metrika.astro'
 
 import '../../styles/global.css'
 //import '@fontsource/inter';
@@ -49,6 +50,9 @@ pageTitle += ' - ' + config.websiteName
 		/>
 
 		<ViewTransitions />
+
+		<Metrika client:load />
+
 	</head>
 
 	<body class="m-5 bg-slate-50 sm:mx-8">
@@ -63,18 +67,6 @@ pageTitle += ' - ' + config.websiteName
 		</main>
 
 		<Navigation transition:persist="navigation" />
-		
-		<!-- Yandex.Metrika counter -->
-		<script type="text/javascript">
-			(function(m,e,t,r,i,k,a){
-				m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-				m[i].l=1*new Date();
-				for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-				k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-			})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104348044', 'ym');
-
-			ym(104348044, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-		</script>
 
 	</body>
 </html>
