@@ -1,0 +1,35 @@
+---
+import Button from '@components/Form/Button.astro'
+import { Icon } from 'astro-icon'
+import { getCollection } from 'astro:content'
+import BlogPost from '@components/Blog/BlogPost.astro'
+
+const allPosts = (await getCollection('blog', ({ data }) => data.isDraft !== true))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2)
+---
+
+<section class="flex flex-col gap-3">
+	<header class="flex items-center justify-between">
+		<div class="flex items-center">
+			<Icon name="ph:notebook" class="mr-3 h-6 w-6 text-primary-500" />
+
+			<h3 class="text-xl font-bold text-primary-950 sm:text-xl dark:text-primary-200">Latest Blog</h3>
+		</div>
+
+		<Button href="/blog" title="View All" icon="ph:arrow-right-bold" variant="link" size="md" />
+	</header>
+
+	<div class="grid gap-5 sm:grid-cols-2 sm:gap-6">
+		{allPosts.map((post) => (
+			<BlogPost
+				url={`/blog/${post.slug}`}
+				tags={post.data.tags}
+				key={post.id}
+				description={post.data.description}
+				title={post.data.title}
+				img={post.data.image}
+			/>
+		))}
+	</div>
+</section>
