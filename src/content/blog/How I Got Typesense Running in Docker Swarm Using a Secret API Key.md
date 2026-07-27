@@ -1,11 +1,11 @@
 ---
 layout: '../../layouts/SingleBlogLayout.astro'
 title: 'How I Got Typesense Running in Docker Swarm Using a Secret API Key'
-description: ''
+description: 'Learn how I successfully ran Typesense in Docker Swarm using Docker Secrets to protect the API key. The article covers failed attempts and the final solution with a custom entrypoint.'
 isDraft: false
 pubDate: '13-05-2025'
 image:
-  src: 'https://www.scrut.io/wp-content/uploads/2022/10/typesense-1.jpg'
+  src: '/images/blog/laravel-typesense.avif'
   alt: 'laravel'
 tags:
   - 'laravel'
@@ -121,7 +121,6 @@ secrets:
 volumes:
   typesense_data:
 ```
-
 
 ### (update) Full working `docker-compose.yml` for Docker Compose:
 
