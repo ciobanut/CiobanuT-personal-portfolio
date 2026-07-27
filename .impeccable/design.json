@@ -1,0 +1,224 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-07-25T00:00:00Z",
+	"title": "Design System: CiobanuT Portfolio",
+	"extensions": {
+		"colorMeta": {
+			"flame": {
+				"role": "primary",
+				"displayName": "Flame",
+				"canonical": "#F45D22",
+				"tonalRamp": [
+					"#FDDDD1",
+					"#FCCFBD",
+					"#FAB297",
+					"#F89670",
+					"#F67949",
+					"#F45D22",
+					"#D3430B",
+					"#9E3208"
+				]
+			},
+			"ice": {
+				"role": "secondary",
+				"displayName": "Ice",
+				"canonical": "#0A9EF5",
+				"tonalRamp": [
+					"#BAE4FC",
+					"#A7DCFB",
+					"#80CDFA",
+					"#58BDF8",
+					"#31AEF7",
+					"#0A9EF5",
+					"#087BBF",
+					"#065889"
+				]
+			},
+			"neutral-bg": {
+				"role": "neutral",
+				"displayName": "Warm Ground",
+				"canonical": "#f8fafc",
+				"tonalRamp": [
+					"#f8fafc",
+					"#f1f5f9",
+					"#e2e8f0",
+					"#cbd5e1",
+					"#94a3b8",
+					"#64748b",
+					"#475569",
+					"#334155"
+				]
+			}
+		},
+		"typographyMeta": {
+			"display": {
+				"displayName": "Display",
+				"purpose": "Hero headings and section titles. Bold, tight, editorial."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "All reading text. Inter at 1rem/1.125rem, 1.625 line height."
+			},
+			"prose": {
+				"displayName": "Prose",
+				"purpose": "Blog posts and long-form project descriptions. Source Serif Pro."
+			},
+			"label": {
+				"displayName": "Label",
+				"purpose": "Small text — footer, metadata, form labels."
+			},
+			"hand": {
+				"displayName": "Hand Accent",
+				"purpose": "Decorative signature on the About page only. Comforter cursive."
+			}
+		},
+		"shadows": [
+			{
+				"name": "nav-float",
+				"value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+				"purpose": "Navigation bar shadow. The only shadow in the system — sets the nav apart from scrolling content."
+			}
+		],
+		"motion": [
+			{
+				"name": "button-shine",
+				"value": "translate-x: -70% → 50% over 1000ms, diagonal",
+				"purpose": "Shine sweep on button hover. White overlay translates diagonally across the button."
+			},
+			{
+				"name": "icon-shift",
+				"value": "translate-x: 0 → 4px over 300ms",
+				"purpose": "Icon shifts right on group hover (buttons with icons)."
+			},
+			{
+				"name": "label-float",
+				"value": "transform translate-y over 300ms",
+				"purpose": "Floating label animation on form inputs."
+			},
+			{
+				"name": "nav-tooltip",
+				"value": "opacity: 0 → 1 over 300ms",
+				"purpose": "Tooltip fade-in on navigation item hover."
+			}
+		],
+		"breakpoints": [
+			{ "name": "sm", "value": "640px" },
+			{ "name": "md", "value": "768px" },
+			{ "name": "lg", "value": "1024px" }
+		]
+	},
+	"components": [
+		{
+			"name": "Primary Button",
+			"kind": "button",
+			"refersTo": "button-primary",
+			"description": "Primary call-to-action. Flame background, white text, shine sweep on hover.",
+			"html": "<button class=\"ds-btn-primary\">\n  <span>About Me</span>\n  <svg class=\"ds-icon-right\" width=\"12\" height=\"12\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z\"/></svg>\n  <span class=\"ds-btn-shine\"></span>\n</button>",
+			"css": ".ds-btn-primary { background: #F45D22; color: #fff; border: none; border-radius: 8px; padding: 0.5rem 1.25rem; font-size: 1.125rem; font-weight: 500; font-family: Inter, ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; position: relative; overflow: hidden; cursor: pointer; transition: background 0.2s; } @media (min-width: 640px) { .ds-btn-primary { padding: 0.625rem 1.75rem; } } .ds-btn-primary:hover { background: #D3430B; } .ds-btn-primary:hover .ds-icon-right { transform: translateX(4px); } .ds-icon-right { width: 12px; height: 12px; transition: transform 0.3s; position: relative; z-index: 40; } .ds-btn-shine { position: absolute; inset: 0; z-index: 20; height: 200%; width: 200%; background: rgba(255,255,255,0.2); transform: translateX(-70%) rotate(45deg); transition: transform 1s; } .ds-btn-primary:hover .ds-btn-shine { transform: translateX(50%) scale(1); } .ds-btn-primary span { position: relative; z-index: 40; }"
+		},
+		{
+			"name": "Secondary Button",
+			"kind": "button",
+			"refersTo": "button-secondary",
+			"description": "Secondary action. Ice background, white text.",
+			"html": "<button class=\"ds-btn-secondary\">\n  <span>Contact Me</span>\n  <svg class=\"ds-icon-right\" width=\"12\" height=\"12\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32Z\"/></svg>\n  <span class=\"ds-btn-shine\"></span>\n</button>",
+			"css": ".ds-btn-secondary { background: #0A9EF5; color: #fff; border: none; border-radius: 8px; padding: 0.5rem 1.25rem; font-size: 1.125rem; font-weight: 500; font-family: Inter, ui-sans-serif, system-ui, sans-serif; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; position: relative; overflow: hidden; cursor: pointer; transition: background 0.2s; } @media (min-width: 640px) { .ds-btn-secondary { padding: 0.625rem 1.75rem; } } .ds-btn-secondary:hover { background: #087BBF; } .ds-btn-secondary:hover .ds-icon-right { transform: translateX(4px); }"
+		},
+		{
+			"name": "Badge / Tag Chip",
+			"kind": "chip",
+			"refersTo": "button-badge",
+			"description": "Tag labels for tech stacks and categories. Pill-shaped, neutral.",
+			"html": "<span class=\"ds-chip\">Laravel</span>",
+			"css": ".ds-chip { display: inline-block; background: #f1f5f9; color: #64748b; font-size: 0.875rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; padding: 0.25rem 0.5rem; border-radius: 9999px; border: 1px solid #cbd5e1; white-space: nowrap; }"
+		},
+		{
+			"name": "Navigation Item",
+			"kind": "nav",
+			"refersTo": "nav-item",
+			"description": "Fixed bottom navigation item. Icons with tooltip on hover. Active state uses Ice background.",
+			"html": "<nav class=\"ds-nav\">\n  <a class=\"ds-nav-item\" href=\"#\" aria-label=\"Open page Home\">\n    <svg width=\"32\" height=\"32\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M219.31 108.68l-80-80a16 16 0 0 0-22.62 0l-80 80A15.87 15.87 0 0 0 32 120v96a8 8 0 0 0 8 8h64a8 8 0 0 0 8-8v-56h32v56a8 8 0 0 0 8 8h64a8 8 0 0 0 8-8v-96a15.87 15.87 0 0 0-4.69-11.32Z\"/></svg>\n    <span class=\"ds-tooltip\">Home</span>\n  </a>\n  <a class=\"ds-nav-item ds-nav-item-active\" href=\"#\" aria-label=\"Open page Projects\">\n    <svg width=\"32\" height=\"32\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M216 56H40a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V72a16 16 0 0 0-16-16Zm0 128H40V72h176v112Z\"/></svg>\n    <span class=\"ds-tooltip\">Projects</span>\n  </a>\n</nav>",
+			"css": ".ds-nav { display: flex; gap: 0.5rem; justify-content: center; padding: 0.5rem; background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.6); border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 50; } .ds-nav-item { display: block; border-radius: 12px; padding: 0.5rem; color: #64748b; border: 1px solid rgba(148,163,184,0.2); text-decoration: none; position: relative; transition: border-color 0.3s, color 0.3s; } .ds-nav-item:hover { border-color: rgba(100,116,139,0.5); color: #020617; } .ds-nav-item:hover .ds-tooltip { opacity: 1; } .ds-nav-item-active { background: #0A9EF5; color: #fff; border-color: #0A9EF5; } .ds-tooltip { position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: #1e293b; color: #fff; font-size: 0.875rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; padding: 0.25rem 0.625rem; border-radius: 6px; white-space: nowrap; opacity: 0; transition: opacity 0.3s; pointer-events: none; } .ds-tooltip::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%) rotate(45deg); width: 12px; height: 12px; background: #1e293b; border-radius: 2px; }"
+		},
+		{
+			"name": "Content Card",
+			"kind": "card",
+			"refersTo": "card-default",
+			"description": "Standard content card. White surface, slate border, rounded-2xl. Optional inner layer with slate-50 bg.",
+			"html": "<article class=\"ds-card\">\n  <div class=\"ds-card-inner\">\n    <h3 style=\"font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0 0 0.5rem 0;\">Project Title</h3>\n    <p style=\"color: #475569; font-size: 1rem; line-height: 1.625; margin: 0;\">A short description of the project and the problem it solved.</p>\n  </div>\n</article>",
+			"css": ".ds-card { border: 1px solid #e2e8f0; border-radius: 16px; padding: 8px; background: #fff; } .ds-card-inner { display: flex; flex-direction: column; gap: 0.5rem; padding: 2.5rem; background: #f8fafc; border-radius: 12px; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }"
+		},
+		{
+			"name": "Floating Label Input",
+			"kind": "input",
+			"refersTo": "input-field",
+			"description": "Form input with floating label. Border shifts from slate-300 to stone-600 on focus.",
+			"html": "<div class=\"ds-field\">\n  <input type=\"text\" id=\"demo-name\" class=\"ds-input\" placeholder=\" \" autocomplete=\"off\"/>\n  <label for=\"demo-name\" class=\"ds-label\">Your Name</label>\n</div>",
+			"css": ".ds-field { position: relative; margin-top: 0.5rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-input { display: block; width: 100%; padding: 0.75rem 0.625rem 0.75rem 0.625rem; font-size: 0.875rem; color: #0f172a; background: transparent; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; transition: border-color 0.2s; box-sizing: border-box; } .ds-input:focus { border-color: #57534e; } .ds-label { position: absolute; left: 0.25rem; top: 0.5rem; z-index: 10; transform-origin: 0 0; transform: translateY(0) scale(1); background: #fff; padding: 0 0.5rem; font-size: 0.875rem; color: #64748b; transition: transform 0.3s, font-size 0.3s, color 0.2s; pointer-events: none; } .ds-input:focus ~ .ds-label, .ds-input:not(:placeholder-shown) ~ .ds-label { transform: translateY(-1.25rem) scale(0.75); color: #57534e; }"
+		},
+		{
+			"name": "Section Header",
+			"kind": "custom",
+			"refersTo": "section-header",
+			"description": "Consistent section title pattern across all pages. Centered, optional icon in Flame-400.",
+			"html": "<header class=\"ds-section-header\">\n  <svg width=\"32\" height=\"32\" viewBox=\"0 0 256 256\" fill=\"#F67949\"><path d=\"M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16Zm0 160H40V56h176v144ZM80 84a8 8 0 0 1 8-8h80a8 8 0 0 1 0 16H88a8 8 0 0 1-8-8Zm0 32a8 8 0 0 1 8-8h80a8 8 0 0 1 0 16H88a8 8 0 0 1-8-8Zm0 32a8 8 0 0 1 8-8h48a8 8 0 0 1 0 16H88a8 8 0 0 1-8-8Z\"/></svg>\n  <h4 class=\"ds-section-title\">Latest Works</h4>\n  <p class=\"ds-section-desc\">Some of my recent projects.</p>\n</header>",
+			"css": ".ds-section-header { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-bottom: 2rem; text-align: center; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-section-title { font-size: clamp(1.875rem, 5vw, 2.25rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; color: #0f172a; margin: 0; } .ds-section-desc { max-width: 400px; color: #64748b; font-size: 1rem; margin: 0; }"
+		},
+		{
+			"name": "Top Header Bar",
+			"kind": "custom",
+			"refersTo": "top-header",
+			"description": "Compact personal header with avatar, name, title, and availability status.",
+			"html": "<header class=\"ds-top-header\">\n  <a class=\"ds-top-header-link\" href=\"#\">\n    <div class=\"ds-avatar\">T</div>\n    <div>\n      <p class=\"ds-top-name\">Ciobanu Tudor</p>\n      <p class=\"ds-top-title\">Web Developer</p>\n    </div>\n  </a>\n  <div class=\"ds-top-status\">\n    <span class=\"ds-status-dot\"></span>\n    Available for Projects\n  </div>\n</header>",
+			"css": ".ds-top-header { border: 1px solid #f1f5f9; border-radius: 9999px; padding: 0.5rem 0.625rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; display: flex; justify-content: space-between; align-items: center; } .ds-top-header-link { display: flex; align-items: center; text-decoration: none; } .ds-avatar { width: 48px; height: 48px; border-radius: 9999px; background: #F45D22; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; margin-right: 1rem; } .ds-top-name { margin: 0; font-size: 1.125rem; color: #334155; font-weight: 500; } .ds-top-title { margin: 0; font-size: 0.75rem; color: #64748b; } .ds-top-status { display: none; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: #020617; } @media (min-width: 640px) { .ds-top-status { display: flex; } } .ds-status-dot { width: 10px; height: 10px; border-radius: 9999px; background: #16a34a; animation: ds-pulse 1.3s ease-in-out infinite; } @keyframes ds-pulse { 0%, 100% { opacity: 1; } 40% { opacity: 0.3; } }"
+		}
+	],
+	"narrative": {
+		"northStar": "The Dock Brief",
+		"overview": "A personal portfolio that reads like a captain's log: direct, truthful, purposeful. Every element has a job. The design does not perform — it presents. Warmth comes from personality and candor, not decoration. The orange ('Flame') is a signal, used sparingly to mark what matters. The blue ('Ice') is a steady current beneath interactions — present but never demanding attention.\n\nThe page feels like a well-organized brief handed across a desk: structured without being stiff, friendly without being casual. Content is framed in white card stock on a warm-slate ground, with rounded corners that keep the edges approachable. The fixed bottom nav with glassmorphism is the one lifted gesture — it stays out of the way until needed, then feels solid and intentional.\n\nThis is a portfolio for a developer who ships. The design communicates reliability, clarity, and a human behind the screen.",
+		"keyCharacteristics": [
+			"Card-based layout on a warm neutral ground — content floats in white containers",
+			"Two-accent palette: Flame (orange, high-signal) + Ice (blue, interaction-focused)",
+			"Rounded edges at every scale — from 6px inputs to 24px container corners",
+			"Typography-driven: Inter carries the weight; Source Serif Pro slows down reading on blog posts",
+			"Flat by default, with depth reserved for interactive state (nav glassmorphism, button shine)",
+			"Dark mode that respects system preference and persists choice"
+		],
+		"rules": [
+			{
+				"name": "The Signal Rule",
+				"body": "Flame (the primary accent) is used on ≤15% of any given viewport. Its rarity is the point — when Flame appears, the visitor knows it means something. Overuse would turn the portfolio into a carnival.",
+				"section": "colors"
+			},
+			{
+				"name": "The Warm Ground Rule",
+				"body": "The page background (slate-50) is never pure white. White is reserved for content containers. This creates a subtle depth hierarchy without shadows: the page is the ground, cards float just above it.",
+				"section": "colors"
+			},
+			{
+				"name": "The Flat-By-Default Rule",
+				"body": "Surfaces are flat at rest. Shadows appear only as a functional signal — the navigation needs one because it floats above scrolling content. No card, container, or button has a resting shadow.",
+				"section": "elevation"
+			}
+		],
+		"dos": [
+			"Do use Flame sparingly — it's the signature accent, not a background color. One primary button, one icon, one highlight per viewport.",
+			"Do keep content on white surfaces against the slate-50 page background. This maintains the card-on-ground hierarchy.",
+			"Do use the full rounding vocabulary — from 4px (small buttons) to 24px (container) — to create visual rhythm.",
+			"Do use Source Serif Pro for blog posts and long-form project descriptions. Inter for everything else.",
+			"Do respect the gap-14 section spacing. Crowding sections undermines the airy, professional feel.",
+			"Do use the floating label pattern on all form fields — it signals attention to UX detail.",
+			"Do prefer flat surfaces over shadows. The navigation is the only element that should cast a shadow."
+		],
+		"donts": [
+			"Don't add shadows to cards, buttons, or containers. Depth is conveyed through tonal layering, not box-shadow.",
+			"Don't use Flame on more than ~15% of any screen. It loses its signaling power when overused.",
+			"Don't use the Comforter hand font anywhere except the About page signature.",
+			"Don't add new animation patterns without matching the button shine sweep's character (single axis, slow ease, purposeful reveal).",
+			"Don't introduce a third accent color. The Flame + Ice + Slate triangle is the full palette.",
+			"Don't overload the navigation — it fits exactly six items and should stay there.",
+			"Don't replace the inline SVG icons with font-based icon systems. The astro-icon + Phosphor set is the icon standard.",
+			"Don't use box-shadow on focus states. Use border color shift (slate-300 to stone-600)."
+		]
+	}
+}

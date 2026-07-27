@@ -1,0 +1,18 @@
+{
+	"detector": {
+		"ignoreRules": [],
+		"ignoreFiles": [],
+		"ignoreValues": [
+			{
+				"rule": "overused-font",
+				"value": "inter",
+				"createdAt": "2026-07-25T21:22:11.089Z"
+			},
+			{
+				"rule": "single-font",
+				"value": "inter",
+				"createdAt": "2026-07-25T21:22:23.553Z"
+			}
+		]
+	}
+}
