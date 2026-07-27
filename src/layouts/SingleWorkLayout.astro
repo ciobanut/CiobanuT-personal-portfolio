@@ -27,10 +27,10 @@ const works = (
 <BaseLayout pageTitle={frontmatter.title}>
 	<article class="flex flex-col gap-14">
 		<FlexColGap5>
-			<h1 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+			<h1 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
 				{frontmatter.title}
 			</h1>
-			<p class="text-md font-normal leading-relaxed text-slate-600 sm:text-lg">
+			<p class="text-md font-normal leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
 				{frontmatter.description}
 			</p>
 		</FlexColGap5>
@@ -41,16 +41,16 @@ const works = (
 					<img src={frontmatter.client.logo} alt={frontmatter.client.name} class="max-h-full"/>
 				</CardArticle>
 				<CardArticle classNames="col-span-6 sm:col-span-4">
-					<h4 class="text-2xl font-semibold tracking-tight text-slate-900">
+					<h4 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
 						{frontmatter.year}
 					</h4>
-					<p class="text-sm text-slate-500">Year</p>
+					<p class="text-sm text-slate-500 dark:text-slate-400">Year</p>
 				</CardArticle>
 				<CardArticle classNames="col-span-6 sm:col-span-4">
-					<h4 class="text-2xl font-semibold tracking-tight text-slate-900">
+					<h4 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
 						{frontmatter.deadline}
 					</h4>
-					<p class="text-sm text-slate-500">Deadline</p>
+					<p class="text-sm text-slate-500 dark:text-slate-400">Deadline</p>
 				</CardArticle>
 
 				<CardArticle classNames="col-span-6 sm:col-span-4">
@@ -58,7 +58,7 @@ const works = (
 						<IconList stacks={frontmatter.stacks} />
 					</div>
 
-					<p class="text-sm text-slate-500">Stack</p>
+					<p class="text-sm text-slate-500 dark:text-slate-400">Stack</p>
 				</CardArticle>
 
 				{
@@ -68,7 +68,7 @@ const works = (
 								<IconList stacks={frontmatter.languages} />
 							</div>
 
-							<p class="text-sm text-slate-500">Languages</p>
+							<p class="text-sm text-slate-500 dark:text-slate-400">Languages</p>
 						</CardArticle>
 					)
 				}
@@ -83,17 +83,17 @@ const works = (
 		</FlexColGap5>
 
 		<FlexColGap5>
-			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
 				Project Description
 			</h3>
 
-			<div class="prose prose-slate max-w-none">
+			<div class="prose prose-slate max-w-none dark:prose-invert">
 				<slot />
 			</div>
 		</FlexColGap5>
 
 		<FlexColGap5>
-			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
 				Project TimeLine
 			</h3>
 			<div>
@@ -123,7 +123,7 @@ const works = (
 		</div>
 
 		<FlexColGap5>
-			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
 				Other Projects
 			</h3>
 

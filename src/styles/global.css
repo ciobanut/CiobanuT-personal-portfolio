@@ -3,10 +3,23 @@
 	@apply border border-secondary-500 bg-secondary-500 text-white hover:border-secondary-500 hover:text-white;
 }
 
+:root.dark .active,
+:root.dark .active:hover {
+	@apply border-secondary-400 bg-secondary-400 text-slate-950;
+}
+
 ::selection {
 	@apply bg-primary-100 text-primary-700;
 }
 
 ::-moz-selection {
 	@apply bg-primary-100 text-primary-700;
+}
+
+:root.dark ::selection {
+	@apply bg-primary-900 text-primary-200;
+}
+
+:root.dark ::-moz-selection {
+	@apply bg-primary-900 text-primary-200;
 }
