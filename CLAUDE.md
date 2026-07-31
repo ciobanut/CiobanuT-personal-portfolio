@@ -17,7 +17,7 @@ When I say: "journal", "engineering journal", "summarize today's work", "today's
 Pipeline:
 
 1. **git-analyzer** — discover repos, collect today's commits, group into stories
-2. **engineering-journal** — write the article in `src/content/blog/`
+2. **engineering-journal** — write the worklog in `src/content/worklogs/`
 3. **seo-review** — review and improve SEO metadata
 4. _(wait for my approval)_
 5. **linkedin-post** (optional, only if I ask) — generate LinkedIn post

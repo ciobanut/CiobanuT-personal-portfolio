@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content'
+
+const { limit } = Astro.props
+
+const allWorklogs = (await getCollection('worklogs'))
+  .sort((a, b) => {
+    // Parse DD-MM-YYYY for sorting
+    const [aD, aM, aY] = a.data.pubDate.split('-')
+    const [bD, bM, bY] = b.data.pubDate.split('-')
+    return new Date(bY, bM - 1, bD) - new Date(aY, aM - 1, aD)
+  })
+  .slice(0, limit || undefined)
+---
+
+<section class="flex flex-col divide-y">
+  {
+    allWorklogs.map((entry) => {
+      // Format date for display: "DD Mon YYYY"
+      const [d, m, y] = entry.data.pubDate.split('-')
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      const formattedDate = `${parseInt(d)} ${months[parseInt(m) - 1]} ${y}`
+
+      return (
+        <a
+          href={`/works/logs/${entry.slug}`}
+          class="group flex items-baseline gap-4 px-2 py-1.5 transition-colors"
+        >
+          <span class="shrink-0 font-mono text-sm text-slate-400 dark:text-slate-500">
+            {formattedDate}
+          </span>
+          <span class="truncate text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-primary-500 dark:group-hover:text-primary-400">
+            {entry.data.title}
+          </span>
+        </a>
+      )
+    })
+  }
+</section>

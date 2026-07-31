@@ -5,15 +5,15 @@ description: Generate a compact daily engineering journal entry from Git analysi
 
 # Purpose
 
-Create a compact personal engineering journal entry based on today's work.
+Create a compact personal engineering journal entry based on today's work and save it to `src/content/worklogs/`.
 
-Document what I built, what changed, and what I learned. Nothing more.
+Document what I built, what changed, and what I learned.
 
 Use `blog-writer` separately when a story is worth expanding into a full article.
 
 ## Writing Style
 
-- Maximum 200 words.
+- Maximum 350 words.
 - Short sentences. Bullet points preferred.
 - No introductions, hooks, or conclusions.
 - No explanations of obvious concepts. Assume the reader is an experienced engineer.
@@ -25,9 +25,10 @@ Use `blog-writer` separately when a story is worth expanding into a full article
 ```
 ---
 title: <includes date>
-pubDate: <YYYY-MM-DD>
+pubDate: <DD-MM-YYYY>
 tags: <3-5 tags>
 description: <one-line summary>
+project: <project-slug (optional)>
 ---
 
 # <Date>
@@ -38,11 +39,15 @@ One short sentence summary.
 
 ### <Project name>
 
-- What changed
-- Why it mattered
-- Important technical details
+Grouped engineering stories. Each story:
 
-Repeat per project.
+- What changed, why it mattered, important technical details
+
+### All changes
+
+One bullet per meaningful commit (no noise). Shows every change made today.
+
+---
 
 ## Lessons
 
@@ -52,6 +57,21 @@ One or two practical observations.
 
 Short bullet list.
 ```
+
+## Output
+
+- Save the file to `src/content/worklogs/`
+- Filename: `YYYY-MM-DD.md` (e.g., `2026-07-31.md`)
+- No `layout` field in frontmatter — worklogs use their own rendering
+
+## Rules for "All changes"
+
+This section must be included for every project with activity. It exists so the journal doesn't lose sight of individual commits when grouping them into stories.
+
+- One bullet per meaningful commit.
+- Ignore: merge commits, typo fixes, whitespace, formatting, lint, comments, variable renames.
+- Each bullet: short technical description (no commit hash).
+- If a commit belongs to a story in the grouped section above, it can still appear here — redundancy is fine.
 
 ## Security
 

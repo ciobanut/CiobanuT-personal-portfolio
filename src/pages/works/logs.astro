@@ -1,0 +1,19 @@
+---
+import BaseLayout from '@layouts/Base/BaseLayout.astro'
+import Header from '@components/Section/Header.astro'
+import GetWorklogs from '@components/Worklog/GetWorklogs.astro'
+import CallToAction from '@components/HomePageSections/CallToAction.astro'
+
+const pageTitle = 'Work Logs'
+const pageDescription = 'Daily engineering work logs — a running record of what I built, fixed, and learned.'
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+  <section>
+    <Header title="Work Logs" icon="ph:list-checks" desc="Daily engineering logs — compact, date-anchored summaries of what got done." />
+
+    <GetWorklogs limit={30} />
+  </section>
+
+  <CallToAction />
+</BaseLayout>
