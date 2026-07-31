@@ -37,7 +37,7 @@ const worklogs = defineCollection({
 		title: z.string(),
 		pubDate: z.string(),
 		description: z.string().optional(),
-		tags: z.array(z.string()).optional(),
+		stack: z.array(z.string()).optional(),
 		project: z.string().optional()
 	})
 })

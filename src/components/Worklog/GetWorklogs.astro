@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 
-const { limit } = Astro.props
+const { limit, showStackBadges = false } = Astro.props
 
 const allWorklogs = (await getCollection('worklogs'))
   .sort((a, b) => {
@@ -10,12 +10,31 @@ const allWorklogs = (await getCollection('worklogs'))
     const [bD, bM, bY] = b.data.pubDate.split('-')
     return new Date(bY, bM - 1, bD) - new Date(aY, aM - 1, aD)
   })
-  .slice(0, limit || undefined)
+
+// Count stack frequency across all worklogs (before slicing)
+const stackFreq = new Map()
+for (const entry of allWorklogs) {
+  const stacks = entry.data.stack ?? []
+  for (const s of stacks) {
+    stackFreq.set(s, (stackFreq.get(s) ?? 0) + 1)
+  }
+}
+
+// Sort each entry's stacks by global frequency descending, then alphabetically
+for (const entry of allWorklogs) {
+  const stacks = entry.data.stack ?? []
+  entry.data.stack = [...stacks].sort((a, b) => {
+    const freqDiff = (stackFreq.get(b) ?? 0) - (stackFreq.get(a) ?? 0)
+    return freqDiff !== 0 ? freqDiff : a.localeCompare(b)
+  })
+}
+
+const visibleWorklogs = allWorklogs.slice(0, limit || undefined)
 ---
 
 <section class="flex flex-col divide-y">
   {
-    allWorklogs.map((entry) => {
+    visibleWorklogs.map((entry) => {
       // Format date for display: "DD Mon YYYY"
       const [d, m, y] = entry.data.pubDate.split('-')
       const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -29,8 +48,21 @@ const allWorklogs = (await getCollection('worklogs'))
           <span class="shrink-0 font-mono text-sm text-slate-400 dark:text-slate-500">
             {formattedDate}
           </span>
-          <span class="truncate text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-primary-500 dark:group-hover:text-primary-400">
-            {entry.data.title}
+          <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
+            <span class="truncate text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-primary-500 dark:group-hover:text-primary-400">
+              {entry.data.title}
+            </span>
+            {
+              showStackBadges && entry.data.stack?.length > 0 && (
+                <span class="flex flex-wrap gap-1">
+                  {entry.data.stack.map((s) => (
+                    <span class="inline-flex items-center rounded-full  text-xs text-slate-600 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                      {s},
+                    </span>
+                  ))}
+                </span>
+              )
+            }
           </span>
         </a>
       )

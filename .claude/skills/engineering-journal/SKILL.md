@@ -26,7 +26,7 @@ Use `blog-writer` separately when a story is worth expanding into a full article
 ---
 title: <includes date>
 pubDate: <DD-MM-YYYY>
-tags: <3-5 tags>
+stack: <3-5 stack items (e.g., laravel, php, astro, tailwindcss)>
 description: <one-line summary>
 project: <project-slug (optional)>
 ---

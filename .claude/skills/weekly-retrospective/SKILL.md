@@ -9,7 +9,7 @@ Read all engineering journals from the last 7 days and produce a weekly retrospe
 
 ## Input
 
-Engineering journal markdown files from `src/content/blog/` published in the last 7 days.
+Engineering journal markdown files from `src/content/worklogs/` published in the last 7 days.
 
 ### Output
 
