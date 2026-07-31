@@ -32,7 +32,7 @@ Skip commits that only contain:
 
 ## Output Format
 
-Return one section per repository, with grouped stories:
+Return one section per repository, with grouped stories. The top-level heading text MUST be the repo directory name (e.g., `behavora`, `MyPrivateOrder.com`), not a display name — the engineering-journal uses this to look up the correct project slug in `.claude/project-mapping.json`.
 
 ```markdown
 # <project-name>

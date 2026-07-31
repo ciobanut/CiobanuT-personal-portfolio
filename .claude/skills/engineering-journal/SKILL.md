@@ -77,6 +77,17 @@ This section must be included for every project with activity. It exists so the 
 
 Never expose secrets, credentials, API keys, or confidential business logic. Generalize client details when needed.
 
+## Project Mapping
+
+The `project` field in frontmatter MUST use the correct slug from `.claude/project-mapping.json`.
+
+**Critical rules:**
+
+- Map each repo directory name to its project slug using `.claude/project-mapping.json`
+- Every repo has exactly one project slug — never merge logs from different repos under the same project
+- Even if a project is not yet published on the website, use its correct project slug; do not attribute its work to another project
+- When a day has work across multiple repos, each gets its own `### Project name` section with the correct `project:` field
+
 ## Input
 
 Takes structured output from `git-analyzer`.
