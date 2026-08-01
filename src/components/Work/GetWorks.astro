@@ -20,7 +20,7 @@ const works = (
 		.slice() // evită mutarea originalului
 		.map((work) => (
 			<WorkPost
-				url={`/works/${work.slug}`}
+				url={`/works/${work.id}`}
 				stacks={work.data.stacks}
 				languages={work.data.languages}
 				key={work.id}

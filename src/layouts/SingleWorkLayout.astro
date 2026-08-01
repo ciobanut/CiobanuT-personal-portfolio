@@ -119,7 +119,7 @@ const relatedWorklogs = allWorklogs
 								const formattedDate = `${parseInt(d)} ${months[parseInt(m) - 1]} ${y}`
 								return (
 									<a
-										href={`/works/logs/${wl.slug}`}
+										href={`/works/logs/${wl.id}`}
 										class="group flex items-baseline gap-4 px-2 py-1.5 transition-colors"
 									>
 										<span class="shrink-0 font-mono text-sm text-slate-400 dark:text-slate-500">
@@ -143,7 +143,7 @@ const relatedWorklogs = allWorklogs
 			</h3>
 			<div>
 				{
-					frontmatter.timeline.map((item) => (
+					frontmatter.timeline?.map((item) => (
 						<TimeLineItem date={item.date} title={item.title} desc={item.desc} />
 					))
 				}
@@ -176,7 +176,7 @@ const relatedWorklogs = allWorklogs
 				{
 					works.map((work) => (
 						<SimplePost
-							url={`/works/${work.slug}`}
+							url={`/works/${work.id}`}
 							stacks={work.data.stacks}
 							languages={work.data.languages}
 							key={work.id}

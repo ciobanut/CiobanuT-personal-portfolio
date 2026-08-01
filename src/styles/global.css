@@ -1,6 +1,51 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--font-serif: 'Source Serif Pro', ui-serif, Georgia, serif;
+	--font-hand: 'Comforter', cursive;
+
+	--color-primary-50: #fdddd1;
+	--color-primary-100: #fccfbd;
+	--color-primary-200: #fab297;
+	--color-primary-300: #f89670;
+	--color-primary-400: #f67949;
+	--color-primary-500: #f45d22;
+	--color-primary-600: #d3430b;
+	--color-primary-700: #9e3208;
+	--color-primary-800: #682105;
+	--color-primary-900: #331003;
+	--color-primary-950: #180801;
+
+	--color-secondary-50: #bae4fc;
+	--color-secondary-100: #a7dcfb;
+	--color-secondary-200: #80cdfa;
+	--color-secondary-300: #58bdf8;
+	--color-secondary-400: #31aef7;
+	--color-secondary-500: #0a9ef5;
+	--color-secondary-600: #087bbf;
+	--color-secondary-700: #065889;
+	--color-secondary-800: #033653;
+	--color-secondary-900: #01131d;
+	--color-secondary-950: #000202;
+
+	--animate-pulse: pulse 1.3s ease-in-out infinite;
+
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		40% {
+			opacity: 0.3;
+		}
+	}
+}
+
 .active,
 .active:hover {
-	@apply border border-secondary-500 bg-secondary-500 text-white hover:border-secondary-500 hover:text-white;
+	@apply border-secondary-500 bg-secondary-500 hover:border-secondary-500 border text-white hover:text-white;
 }
 
 :root.dark .active,

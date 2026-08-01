@@ -1,17 +1,17 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import WorklogLayout from '@layouts/WorklogLayout.astro'
 
 export async function getStaticPaths() {
   const worklogEntries = await getCollection('worklogs')
   return worklogEntries.map(entry => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }))
 }
 
 const { entry } = Astro.props
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 ---
 
 <WorklogLayout frontmatter={entry.data}>

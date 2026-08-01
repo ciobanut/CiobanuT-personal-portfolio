@@ -1,6 +1,12 @@
 import { defineCollection, z } from 'astro:content'
+import { glob } from 'astro/loaders'
 
 const works = defineCollection({
+	loader: glob({
+		pattern: '**/*.md',
+		base: './src/content/works',
+		generateId: ({ entry }) => entry.replace(/\.\w+$/, '')
+	}),
 	schema: z.object({
 		title: z.string(),
 		isDraft: z.boolean().default(false),
@@ -33,6 +39,11 @@ const works = defineCollection({
 })
 
 const worklogs = defineCollection({
+	loader: glob({
+		pattern: '**/*.md',
+		base: './src/content/worklogs',
+		generateId: ({ entry }) => entry.replace(/\.\w+$/, '')
+	}),
 	schema: z.object({
 		title: z.string(),
 		pubDate: z.string(),
@@ -42,4 +53,28 @@ const worklogs = defineCollection({
 	})
 })
 
-export const collections = { works, worklogs }
+const blog = defineCollection({
+	loader: glob({
+		pattern: '**/*.md',
+		base: './src/content/blog',
+		generateId: ({ entry }) => entry.replace(/\.\w+$/, '')
+	}),
+	schema: z.object({
+		title: z.string(),
+		description: z.string().optional(),
+		isDraft: z.boolean().default(false),
+		pubDate: z.string().transform((str) => {
+			const [d, m, y] = str.split('-')
+			return new Date(Number(y), Number(m) - 1, Number(d))
+		}),
+		image: z
+			.object({
+				src: z.string(),
+				alt: z.string().optional()
+			})
+			.optional(),
+		tags: z.array(z.string()).optional()
+	})
+})
+
+export const collections = { works, worklogs, blog }

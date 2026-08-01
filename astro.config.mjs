@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
+import tailwindcss from '@tailwindcss/vite'
+import icon from 'astro-icon'
 import favicons from 'astro-favicons'
 
 export default defineConfig({
@@ -8,31 +9,22 @@ export default defineConfig({
 		prefetchAll: true
 	},
 	compressHTML: import.meta.env.PROD,
+	vite: {
+		plugins: [tailwindcss()]
+	},
 
 	integrations: [
-		tailwind(),
-
+		icon(),
 		favicons({
-			masterPicture: './src/assets/favicon.svg',
-			emitAssets: true,
-
-			// You should adjust the following options accordingly
-			appName: 'CiobanuT',
-			appShortName: 'CiobanuT',
-			appDescription: "Ciobanu Tudor's portfolio",
-			// dir:"auto",
+			input: 'src/assets/favicon.svg',
+			name: 'CiobanuT',
+			short_name: 'CiobanuT',
 			lang: 'en-US',
-			// display: "standalone",
-			// orientation: "any",
 			start_url: '/',
 			background: '#fff',
 			theme_color: '#fff',
-
-			faviconsDarkMode: false // default `true`, Make favicon compatible with light and dark modes
-
-			// appleStatusBarStyle: "black-translucent",
-
-			//....
+			pixel_art: false,
+			manifestMaskable: true
 		})
 	]
 })

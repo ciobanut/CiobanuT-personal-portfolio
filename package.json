@@ -8,30 +8,30 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"prepare": "husky install"
+		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@astrojs/tailwind": "^5.0.2",
-		"@tailwindcss/forms": "^0.5.6",
-		"@tailwindcss/typography": "^0.5.10",
-		"astro": "^3.5.3",
-		"husky": "^8.0.3",
+		"@tailwindcss/typography": "^0.5.20",
+		"@tailwindcss/vite": "^4.3.3",
+		"astro": "^7.1.6",
+		"husky": "^9.1.7",
 		"lint-staged": "^15.0.2",
 		"prettier": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.6",
-		"tailwindcss": "^3.3.5"
+		"tailwindcss": "^4.3.3"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.23.2",
 		"@fontsource/comforter": "^5.0.17",
 		"@fontsource/inter": "^5.0.15",
 		"@fontsource/source-serif-pro": "^5.1.0",
+		"@iconify-json/ph": "^1.2.2",
 		"astro-capo": "github:natemoo-re/astro-capo",
-		"astro-favicons": "^1.2.0",
-		"astro-icon": "^0.8.1",
-		"astro-seo": "^0.8.0",
+		"astro-favicons": "^3.1.6",
+		"astro-icon": "^1.1.5",
+		"astro-seo": "^1.1.0",
 		"prettier-plugin-astro": "^0.12.1",
-		"typescript": "^5.2.2"
+		"typescript": "^7.0.2"
 	},
 	"lint-staged": {
 		"**/*": "prettier --write --ignore-unknown"
