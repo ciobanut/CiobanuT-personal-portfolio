@@ -4,7 +4,7 @@ const { iconName, title, description } = Astro.props;
 ---
 
 <div class="flex border border-slate-200/60 rounded-lg p-3 gap-3">
-	<Icon name={iconName} class="w-10 h-10 rounded-md" />
+	<Icon name={iconName} class="rounded-md" size={40} />
 	<div class="flex flex-col gap-0">
 		<h5 class="font-bold">{title}</h5>
 		<span class="text-xs text-slate-600">{description}</span>

@@ -12,7 +12,7 @@ const allPosts = (await getCollection('blog', ({ data }) => data.isDraft !== tru
 <section class="flex flex-col gap-3">
 	<header class="flex items-center justify-between">
 		<div class="flex items-center">
-			<Icon name="ph:notebook" class="mr-3 h-6 w-6 text-primary-500" />
+			<Icon name="ph:notebook" class="mr-3 text-primary-500" size={24} />
 
 			<h3 class="text-xl font-bold text-primary-950 sm:text-xl dark:text-primary-200">Latest Blog</h3>
 		</div>
