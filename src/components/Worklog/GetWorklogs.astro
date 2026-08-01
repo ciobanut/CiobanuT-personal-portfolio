@@ -32,7 +32,7 @@ for (const entry of allWorklogs) {
 const visibleWorklogs = allWorklogs.slice(0, limit || undefined)
 ---
 
-<section class="flex flex-col divide-y">
+<section class="flex flex-col divide-y border border-slate-200 rounded-xl divide-slate-200 dark:divide-slate-700">
   {
     visibleWorklogs.map((entry) => {
       // Format date for display: "DD Mon YYYY"
