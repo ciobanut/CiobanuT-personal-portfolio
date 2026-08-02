@@ -19,6 +19,7 @@ const works = defineCollection({
 		}),
 		business_niche: z.string(),
 		deadline: z.string(),
+		website: z.string().optional(),
 		image: z
 			.object({
 				src: z.string(),
