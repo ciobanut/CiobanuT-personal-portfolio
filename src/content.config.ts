@@ -29,6 +29,15 @@ const works = defineCollection({
 			.optional(),
 		stacks: z.array(z.string()),
 		languages: z.array(z.string()).optional(),
+		timeline: z
+			.array(
+				z.object({
+					date: z.string(),
+					title: z.string(),
+					desc: z.string()
+				})
+			)
+			.optional(),
 		review: z
 			.object({
 				author: z.string().optional(),
