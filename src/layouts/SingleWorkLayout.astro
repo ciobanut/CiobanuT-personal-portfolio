@@ -9,13 +9,14 @@ import TimeLineItem from '@components/Single/TimeLineItem.astro'
 import Button from '@components/Form/Button.astro'
 import FlexColGap5 from '@components/FlexColGap5.astro'
 import SimplePost from '@components/SimplePost.astro'
+import { normalizeRepo } from '../lib/projects'
 
 const PostsPerPage = 4
 
 import { getCollection } from 'astro:content'
 
 // Get current project slug from URL for filtering related worklogs
-const currentSlug = Astro.url.pathname.split('/').pop()
+const currentSlug = Astro.url.pathname.split('/').filter(Boolean).pop()
 
 const works = (
 	await getCollection('works', ({ data }) => {
@@ -26,10 +27,11 @@ const works = (
 	.sort(() => Math.random() - 0.5)
 	.slice(0, PostsPerPage)
 
-// Fetch and filter worklogs related to the current project
+// Fetch and filter worklogs related to the current project (by canonical GitHub repo)
 const allWorklogs = await getCollection('worklogs')
+const workRepos = new Set((frontmatter.github_repos ?? []).map(normalizeRepo))
 const relatedWorklogs = allWorklogs
-	.filter((wl) => wl.data.project === currentSlug)
+	.filter((wl) => (wl.data.github_repos ?? []).some((r) => workRepos.has(normalizeRepo(r))))
 	.sort((a, b) => {
 		const [aD, aM, aY] = a.data.pubDate.split('-')
 		const [bD, bM, bY] = b.data.pubDate.split('-')

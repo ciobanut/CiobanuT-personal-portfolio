@@ -4,11 +4,15 @@ const { frontmatter } = Astro.props
 import BaseLayout from './Base/BaseLayout.astro'
 import FlexColGap5 from '@components/FlexColGap5.astro'
 import CallToAction from '@components/HomePageSections/CallToAction.astro'
+import { resolveWorklogProjects } from '../lib/projects'
 
 // Parse DD-MM-YYYY for display
 const [d, m, y] = (frontmatter.pubDate || '').split('-')
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const formattedDate = `${parseInt(d)} ${months[parseInt(m) - 1]} ${y}`
+
+// Resolve the friendly project(s) this worklog belongs to
+const projects = await resolveWorklogProjects(frontmatter.github_repos)
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -29,6 +33,27 @@ const formattedDate = `${parseInt(d)} ${months[parseInt(m) - 1]} ${y}`
             <p class="text-md leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
               {frontmatter.description}
             </p>
+          )
+        }
+
+        {
+          projects.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {projects.map((project) =>
+                project.href ? (
+                  <a
+                    href={project.href}
+                    class="rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700 transition-colors hover:bg-primary-100 dark:bg-primary-950 dark:text-primary-300 dark:hover:bg-primary-900"
+                  >
+                    {project.displayName}
+                  </a>
+                ) : (
+                  <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                    {project.displayName}
+                  </span>
+                )
+              )}
+            </div>
           )
         }
       </div>

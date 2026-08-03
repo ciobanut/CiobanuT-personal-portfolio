@@ -1,5 +1,5 @@
 {
-	"description": "Maps repository directory names to project slugs for the engineering journal pipeline.",
+	"description": "Maps repository directory names to project slugs for the engineering journal pipeline. GitHub full repo names (`owner/repo`) are the canonical key linking worklogs to projects.",
 	"mappings": {
 		"CiobanuT-personal-portfolio": "astro-portfolio-website",
 		"MyPrivateOrder.com": "myprivateorder_com",
@@ -40,10 +40,17 @@
 		"local-ansible": "infrastructure",
 		"tests": "sandbox"
 	},
+	"repos": {
+		"zordecmax/journey-predictor-api": "behavora",
+		"zordecmax/journey-predictor-client": "behavora"
+	},
+	"display_names": {
+		"behavora": "Behavora"
+	},
 	"rules": [
-		"Every worklog entry MUST have the correct project slug in its frontmatter.",
-		"When a repo maps to a project that is not yet published on the website, still use its correct project slug — do not merge it into another project's logs.",
-		"If a day's work spans multiple repos, create separate project sections in the journal entry, each with its own correct project slug.",
-		"When adding a new project to the website, register it in this mapping file first."
+		"Every worklog entry MUST list the GitHub repo(s) (`owner/repo`) it actually worked on in its `github_repos` frontmatter field.",
+		"Every `github_repos` entry must resolve to a known project: a published work in `src/content/works/` (via its `github_repos`) or a `repos` registry entry.",
+		"When a day's work spans multiple repos, list them all in `github_repos` and give each project its own `### Project name` section.",
+		"When publishing a new project, add its GitHub repo(s) to the `repos` registry until it has a work page."
 	]
 }

@@ -28,7 +28,8 @@ title: <includes date>
 pubDate: <DD-MM-YYYY>
 stack: <3-5 stack items (e.g., laravel, php, astro, tailwindcss)>
 description: <one-line summary>
-project: <project-slug (optional)>
+github_repos:
+  - <owner/repo>   # one GitHub repo per project worked on today (optional)
 ---
 
 # <Date>
@@ -79,14 +80,14 @@ Never expose secrets, credentials, API keys, or confidential business logic. Gen
 
 ## Project Mapping
 
-The `project` field in frontmatter MUST use the correct slug from `.claude/project-mapping.json`.
+The `github_repos` field in frontmatter is an array of GitHub full repo names (`owner/repo`) — the canonical key linking worklogs to projects. Every entry MUST be a real GitHub repo (taken from the repo's git remote) that resolves to a known project: a published work in `src/content/works/` or a `repos` entry in `.claude/project-mapping.json`.
 
 **Critical rules:**
 
-- Map each repo directory name to its project slug using `.claude/project-mapping.json`
-- Every repo has exactly one project slug — never merge logs from different repos under the same project
-- Even if a project is not yet published on the website, use its correct project slug; do not attribute its work to another project
-- When a day has work across multiple repos, each gets its own `### Project name` section with the correct `project:` field
+- Use the repo's full name from its git remote, e.g. `zordecmax/journey-predictor-api` — never a slug, domain, or directory name
+- Use `.claude/project-mapping.json` to identify the project: `mappings` (directory → slug) helps confirm which project a repo belongs to
+- Even if a project is not yet published on the website, still list its real repo(s) — do not attribute its work to another project
+- When a day has work across multiple repos, list every repo in the `github_repos:` array, and give each project its own `### Project name` section in the body
 
 ## Input
 

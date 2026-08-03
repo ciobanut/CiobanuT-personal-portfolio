@@ -21,6 +21,8 @@ languages:
   - 'html5'
   - 'markdown'
   - 'javascript'
+github_repos:
+  - 'ciobanut/CiobanuT-personal-portfolio'
 timeline:
   - 0:
     date: 'september 2023'

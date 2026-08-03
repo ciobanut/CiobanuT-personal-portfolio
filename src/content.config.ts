@@ -1,6 +1,9 @@
 import { defineCollection, z } from 'astro:content'
 import { glob } from 'astro/loaders'
 
+// GitHub full repo name, e.g. 'owner/repo' — the canonical key linking works and worklogs
+const repo = z.string().regex(/^[^/]+\/[^/]+$/, 'must be in owner/repo format')
+
 const works = defineCollection({
 	loader: glob({
 		pattern: '**/*.md',
@@ -29,6 +32,7 @@ const works = defineCollection({
 			.optional(),
 		stacks: z.array(z.string()),
 		languages: z.array(z.string()).optional(),
+		github_repos: z.array(repo).optional(),
 		timeline: z
 			.array(
 				z.object({
@@ -59,7 +63,7 @@ const worklogs = defineCollection({
 		pubDate: z.string(),
 		description: z.string().optional(),
 		stack: z.array(z.string()).optional(),
-		project: z.string().optional()
+		github_repos: z.array(repo).optional()
 	})
 })
 
