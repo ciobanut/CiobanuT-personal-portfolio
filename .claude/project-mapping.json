@@ -41,8 +41,22 @@
 		"tests": "sandbox"
 	},
 	"repos": {
+		"ciobanut/AltText.ai": "alttext-ai",
+		"ciobanut/auto_sender": "auto-sender",
+		"ciobanut/free-demo-nextjs-ecommerce-template-main": "behavora",
+		"ciobanut/invitatii_nunta": "invitatii",
+		"ciobanut/react-native-expo": "react-native",
+		"ciobanut/try-nativePHP": "nativephp",
+		"ciobanut/VisionContext": "vision-context",
+		"DiveshR/laravel-grapesJs-pagebuilder": "laravel-grapesjs",
+		"Great-Bloop/Bloop-API": "bloop",
+		"Great-Bloop/Bloop-landing": "bloop",
 		"zordecmax/journey-predictor-api": "behavora",
-		"zordecmax/journey-predictor-client": "behavora"
+		"zordecmax/journey-predictor-client": "behavora",
+		"zordecmax/landing": "landing",
+		"zordecmax/stream-front": "stream-front",
+		"zordecmax/taxi-api": "taxi",
+		"zordecmax/taxi-passenger": "taxi"
 	},
 	"display_names": {
 		"behavora": "Behavora"
