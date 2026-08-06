@@ -3,18 +3,18 @@ let { url, title, year, img, description, stacks, languages } = Astro.props
 let short_description = description ? description.replace(/(.{80})..+/, '$1...') : ''
 ---
 
-<article class="rounded-2xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800">
+<article class="rounded-2xl border border-slate-200 dark:border-stone-700/60 dark:bg-stone-800">
 	<a href={url}>
 		<img class="h-60 w-full rounded-2xl object-cover p-2" alt={img.alt} src={img.src} />
 	</a>
 	<div class="flex flex-col gap-2 p-3 pt-1 pb-5">
 		<a href={url}>
-			<h4 class="text pr-1 font-bold tracking-tight text-slate-800 dark:text-slate-200">
+			<h4 class="text pr-1 font-bold tracking-tight text-slate-800 dark:text-stone-200">
 				{title}
 			</h4>
 		</a>
 
-		<p class="text-sm font-normal text-slate-600 dark:text-slate-400">
+		<p class="text-sm font-normal text-slate-600 dark:text-stone-400">
 			{short_description}
 		</p>
 	</div>

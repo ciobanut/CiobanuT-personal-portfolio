@@ -3,10 +3,10 @@ import { Icon } from 'astro-icon/components';
 const { iconName, title, description } = Astro.props;
 ---
 
-<div class="flex border border-slate-200/60 rounded-lg p-3 gap-3">
-	<Icon name={iconName} class="rounded-md" size={40} />
+<div class="flex border border-slate-200/60 rounded-lg p-3 gap-3 dark:border-stone-700/60">
+	<Icon name={iconName} class:list={['rounded-md', `stack-icon-${iconName}`]} size={40} />
 	<div class="flex flex-col gap-0">
-		<h5 class="font-bold">{title}</h5>
-		<span class="text-xs text-slate-600">{description}</span>
+		<h5 class="font-bold text-slate-900 dark:text-stone-100">{title}</h5>
+		<span class="text-xs text-slate-600 dark:text-stone-400">{description}</span>
 	</div>
 </div>

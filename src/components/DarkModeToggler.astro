@@ -2,7 +2,7 @@
 <button
 	id="themeToggle"
 	name="darkMode"
-	class="group relative px-2 py-1 border border-slate-500/10 hover:border-slate-500/50 hover:text-slate-950 rounded-xl hover:transition-all duration-300"
+	class="group relative px-2 py-1 border border-slate-500/10 hover:border-slate-500/50 hover:text-slate-950 dark:hover:text-stone-100 rounded-xl hover:transition-all duration-300"
 >
 	<svg width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 		<path
@@ -36,30 +36,38 @@
 		fill: transparent;
 	}
 	:global(.dark) .moon {
-		fill: #cbd5e1;
+		fill: #d6d3d1;
 	}
 </style>
 <script is:inline>
-const theme = (() => {
-	if (
-		typeof localStorage !== "undefined" &&
-		localStorage.getItem("theme")
-	) {
-		return localStorage.getItem("theme");
-	}
-	if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-		return "dark";
-	}
-	return "light";
-	})();
+	const applyTheme = () => {
+		const theme = (() => {
+			if (
+				typeof localStorage !== "undefined" &&
+				localStorage.getItem("theme")
+			) {
+				return localStorage.getItem("theme");
+			}
+			if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+				return "dark";
+			}
+			return "light";
+		})();
 
-	if (theme === "light") {
-		document.documentElement.classList.remove("dark");
-	} else {
-		document.documentElement.classList.add("dark");
-	}
+		if (theme === "light") {
+			document.documentElement.classList.remove("dark");
+		} else {
+			document.documentElement.classList.add("dark");
+		}
 
-	window.localStorage.setItem("theme", theme);
+		window.localStorage.setItem("theme", theme);
+	};
+
+	// Apply on first load and re-apply after every view-transition navigation:
+	// the router swaps <html> attributes from the server-rendered document and
+	// strips the JS-added `dark` class.
+	applyTheme();
+	document.addEventListener("astro:after-swap", applyTheme);
 
 	const handleToggleClick = () => {
 		const element = document.documentElement;
@@ -71,5 +79,5 @@ const theme = (() => {
 
 	document
 		.getElementById("themeToggle")
-		.addEventListener("click", handleToggleClick);
+		?.addEventListener("click", handleToggleClick);
 </script>

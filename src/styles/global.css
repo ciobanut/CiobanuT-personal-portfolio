@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
+/* Class-based dark mode (Tailwind v4 defaults dark: to prefers-color-scheme).
+   Must match DarkModeToggler, which toggles `.dark` on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 	--font-serif: 'Source Serif Pro', ui-serif, Georgia, serif;
@@ -52,7 +56,7 @@
 
 :root.dark .active,
 :root.dark .active:hover {
-	@apply border-secondary-400 bg-secondary-400 text-slate-950;
+	@apply border-secondary-400 bg-secondary-400 text-white;
 }
 
 ::selection {
@@ -69,4 +73,16 @@
 
 :root.dark ::-moz-selection {
 	@apply bg-primary-900 text-primary-200;
+}
+
+/* Dark-mode stack icons: brand marks with near-black fills vanish on stone surfaces.
+   astro-icon renders local icons as <symbol> + <use>, so document CSS can't target
+   the <g>/<path> inside the use-shadow tree. Style the host's `color` instead and
+   let the source SVGs use `currentColor`. */
+:root.dark .stack-icon-github {
+	color: #e7e5e4; /* stone-200 — GitHub mark */
+}
+
+:root.dark .stack-icon-livewire path[fill='#030776'] {
+	fill: #a8a29e; /* stone-400 — Livewire center */
 }

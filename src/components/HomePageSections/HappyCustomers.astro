@@ -14,7 +14,7 @@ const works = await getCollection('works', ({ data }) => {
 	<div class="space-y-5 sm:columns-2 sm:gap-6 sm:space-y-6">
 		{
 			works.map((work) => (
-				<article class="break-inside-avoid-column rounded-2xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800">
+				<article class="break-inside-avoid-column rounded-2xl border border-slate-200 bg-white dark:border-stone-700/60 dark:bg-stone-800">
 					<div class="p-5">
 						<div class="mb-3 flex items-center">
 							<a
@@ -28,13 +28,13 @@ const works = await getCollection('works', ({ data }) => {
 								/>
 							</a>
 							<div>
-								<p class="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+								<p class="text-lg font-semibold tracking-tight text-slate-900 dark:text-stone-100">
 									<a href={`/works/${work.id}`}> {work.data.review.author} </a>
 								</p>
-								<p class="text-xs text-slate-600 dark:text-slate-400">{work.data.client.name}</p>
+								<p class="text-xs text-slate-600 dark:text-stone-400">{work.data.client.name}</p>
 							</div>
 						</div>
-						<span class="mb-3 font-normal text-slate-700 dark:text-slate-300">{work.data.review.message}</span>
+						<span class="mb-3 font-normal text-slate-700 dark:text-stone-300">{work.data.review.message}</span>
 					</div>
 				</article>
 			))

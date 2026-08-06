@@ -15,7 +15,5 @@ import GetWorklogs from '@components/Worklog/GetWorklogs.astro'
     <Button href="/works/logs" title="View All" icon="ph:arrow-right-bold" variant="link" size="md" />
   </header>
 
-  <div class="rounded-xl border border-slate-200 dark:border-slate-700">
-    <GetWorklogs limit={10} showStackBadges={true} />
-  </div>
+  <GetWorklogs limit={10} showStackBadges={true} />
 </section>

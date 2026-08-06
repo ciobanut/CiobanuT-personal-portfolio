@@ -6,14 +6,14 @@ let { url, title, year, img, description, stacks, languages, pubDate } = Astro.p
 let short_description = description ? description.replace(/(.{85})..+/, '$1...') : ''
 ---
 
-<article class="rounded-2xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800">
+<article class="rounded-2xl border border-slate-200 dark:border-stone-700/60 dark:bg-stone-800">
 	<a href={url}>
 		<img class="h-60 w-full rounded-2xl object-cover p-2" alt={img.alt} src={img.src} decoding="async">
 	</a>
 	<div class="flex flex-col gap-2 p-5 pt-3">
 		<div class="flex flex-col gap-2">
 			<a href={url}>
-				<h4 class="pr-1 text-xl font-semibold tracking-tight text-slate-800 dark:text-slate-200">
+				<h4 class="pr-1 text-xl font-semibold tracking-tight text-slate-800 dark:text-stone-200">
 					{title}
 				</h4>
 			</a>
@@ -22,7 +22,7 @@ let short_description = description ? description.replace(/(.{85})..+/, '$1...')
 				{
 					stacks.map((stack) => (
 						<>
-							<div class="group relative inline-flex grow-0 items-center justify-center gap-2 overflow-hidden rounded-full border border-slate-300 bg-slate-100 px-2 py-0.5 text-sm text-slate-600 hover:bg-slate-200 hover:text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200">
+							<div class="group relative inline-flex grow-0 items-center justify-center gap-2 overflow-hidden rounded-full border border-slate-300 bg-slate-100 px-2 py-0.5 text-sm text-slate-600 hover:bg-slate-200 hover:text-slate-700 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700 dark:hover:text-stone-200">
 								<>
 									<span class="z-40">{stack}</span>
 								</>
@@ -33,7 +33,7 @@ let short_description = description ? description.replace(/(.{85})..+/, '$1...')
 			</div>
 		</div>
 
-		<p class="text-md font-normal text-slate-600 dark:text-slate-400">
+		<p class="text-md font-normal text-slate-600 dark:text-stone-400">
 			{short_description}
 		</p>
 

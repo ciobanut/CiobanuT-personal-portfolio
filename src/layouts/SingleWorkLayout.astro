@@ -42,10 +42,10 @@ const relatedWorklogs = allWorklogs
 <BaseLayout pageTitle={frontmatter.title}>
 	<article class="flex flex-col gap-14">
 		<FlexColGap5>
-			<h1 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
+			<h1 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-stone-100 sm:text-4xl">
 				{frontmatter.title}
 			</h1>
-			<p class="text-md font-normal leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
+			<p class="text-md font-normal leading-relaxed text-slate-600 dark:text-stone-400 sm:text-lg">
 				{frontmatter.description}
 			</p>
 		</FlexColGap5>
@@ -56,16 +56,16 @@ const relatedWorklogs = allWorklogs
 					<img src={frontmatter.client.logo} alt={frontmatter.client.name} class="max-h-full"/>
 				</CardArticle>
 				<CardArticle classNames="col-span-6 sm:col-span-4">
-					<h4 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+					<h4 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-stone-100">
 						{frontmatter.year}
 					</h4>
-					<p class="text-sm text-slate-500 dark:text-slate-400">Year</p>
+					<p class="text-sm text-slate-500 dark:text-stone-400">Year</p>
 				</CardArticle>
 				<CardArticle classNames="col-span-6 sm:col-span-4">
-					<h4 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+					<h4 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-stone-100">
 						{frontmatter.deadline}
 					</h4>
-					<p class="text-sm text-slate-500 dark:text-slate-400">Deadline</p>
+					<p class="text-sm text-slate-500 dark:text-stone-400">Deadline</p>
 				</CardArticle>
 
 				<CardArticle classNames="col-span-6 sm:col-span-4">
@@ -73,7 +73,7 @@ const relatedWorklogs = allWorklogs
 						<IconList stacks={frontmatter.stacks} />
 					</div>
 
-					<p class="text-sm text-slate-500 dark:text-slate-400">Stack</p>
+					<p class="text-sm text-slate-500 dark:text-stone-400">Stack</p>
 				</CardArticle>
 
 				{
@@ -83,7 +83,7 @@ const relatedWorklogs = allWorklogs
 								<IconList stacks={frontmatter.languages} />
 							</div>
 
-							<p class="text-sm text-slate-500 dark:text-slate-400">Languages</p>
+							<p class="text-sm text-slate-500 dark:text-stone-400">Languages</p>
 						</CardArticle>
 					)
 				}
@@ -98,7 +98,7 @@ const relatedWorklogs = allWorklogs
 		</FlexColGap5>
 
 		<FlexColGap5>
-			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
+			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-stone-100 sm:text-4xl">
 				Project Description
 			</h3>
 
@@ -110,10 +110,10 @@ const relatedWorklogs = allWorklogs
 		{
 			relatedWorklogs.length > 0 && (
 				<FlexColGap5>
-					<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
+					<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-stone-100 sm:text-4xl">
 						Related Work Logs
 					</h3>
-					<div class="flex flex-col divide-y divide-slate-200 dark:divide-slate-700">
+					<div class="flex flex-col divide-y divide-slate-200 dark:divide-stone-700">
 						{
 							relatedWorklogs.map((wl) => {
 								const [d, m, y] = wl.data.pubDate.split('-')
@@ -124,10 +124,10 @@ const relatedWorklogs = allWorklogs
 										href={`/works/logs/${wl.id}`}
 										class="group flex items-baseline gap-4 px-2 py-1.5 transition-colors"
 									>
-										<span class="shrink-0 font-mono text-sm text-slate-400 dark:text-slate-500">
+										<span class="shrink-0 font-mono text-sm text-slate-400 dark:text-stone-500">
 											{formattedDate}
 										</span>
-										<span class="truncate text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-primary-500 dark:group-hover:text-primary-400">
+										<span class="truncate text-sm font-medium text-slate-800 dark:text-stone-200 group-hover:text-primary-500 dark:group-hover:text-primary-400">
 											{wl.data.title}
 										</span>
 									</a>
@@ -140,7 +140,7 @@ const relatedWorklogs = allWorklogs
 		}
 
 		<FlexColGap5>
-			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
+			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-stone-100 sm:text-4xl">
 				Project TimeLine
 			</h3>
 			<div>
@@ -170,7 +170,7 @@ const relatedWorklogs = allWorklogs
 		</div>
 
 		<FlexColGap5>
-			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
+			<h3 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 dark:text-stone-100 sm:text-4xl">
 				Other Projects
 			</h3>
 

@@ -20,17 +20,17 @@ const projects = await resolveWorklogProjects(frontmatter.github_repos)
     <FlexColGap5>
 
       <div class="flex flex-col gap-2">
-        <time class="font-mono text-sm text-slate-400 dark:text-slate-500">
+        <time class="font-mono text-sm text-slate-400 dark:text-stone-500">
           {formattedDate}
         </time>
 
-        <h1 class="text-2xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100">
+        <h1 class="text-2xl font-bold leading-tight tracking-tight text-slate-900 dark:text-stone-100">
           {frontmatter.title}
         </h1>
 
         {
           frontmatter.description && (
-            <p class="text-md leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg">
+            <p class="text-md leading-relaxed text-slate-600 dark:text-stone-400 sm:text-lg">
               {frontmatter.description}
             </p>
           )
@@ -48,7 +48,7 @@ const projects = await resolveWorklogProjects(frontmatter.github_repos)
                     {project.displayName}
                   </a>
                 ) : (
-                  <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+                  <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600 dark:bg-stone-800 dark:text-stone-400">
                     {project.displayName}
                   </span>
                 )
