@@ -1,0 +1,38 @@
+---
+import type { GetStaticPaths } from 'astro'
+import BaseLayout from '@layouts/Base/BaseLayout.astro'
+import WorkLogsSection from '@components/Worklog/WorkLogsSection.astro'
+import CallToAction from '@components/HomePageSections/CallToAction.astro'
+import { getSortedWorklogs, PAGE_SIZE } from '../../../../lib/worklogs'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const all = await getSortedWorklogs()
+  // Pages 2..N live here; page 1 stays at the canonical /works/logs URL.
+  return paginate(all, { pageSize: PAGE_SIZE }).filter((p) => String(p.params.page) !== '1')
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props
+// Page 2 links back to the canonical /works/logs instead of /works/logs/page/1.
+const prevHref = page.currentPage === 2 ? '/works/logs' : page.url.prev
+const nextHref = page.url.next
+const canonical = new URL(`/works/logs/page/${page.currentPage}`, Astro.site)
+---
+
+<BaseLayout
+  pageTitle={`Work Logs — Page ${page.currentPage}`}
+  pageDescription="Daily engineering work logs — a running record of what I built, fixed, and learned."
+  canonical={canonical}
+  prevHref={prevHref}
+  nextHref={nextHref}
+  ogUrl={canonical}
+>
+  <WorkLogsSection
+    entries={page.data}
+    currentPage={page.currentPage}
+    lastPage={page.lastPage}
+    prevHref={prevHref}
+    nextHref={nextHref}
+  />
+
+  <CallToAction />
+</BaseLayout>

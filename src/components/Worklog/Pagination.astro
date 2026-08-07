@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const { currentPage, lastPage, prevHref, nextHref } = Astro.props
+---
+
+{
+  lastPage > 1 && (
+    <nav aria-label="Pagination" class="mt-4 flex items-center justify-between gap-4 text-sm">
+      {prevHref ? (
+        <a
+          rel="prev"
+          href={prevHref}
+          class="inline-flex items-center gap-1.5 font-medium text-slate-700 transition-colors hover:text-primary-500 dark:text-stone-300 dark:hover:text-primary-400"
+        >
+          <Icon name="ph:caret-left-bold" size={14} />
+          Newer
+        </a>
+      ) : (
+        <span class="inline-flex items-center gap-1.5 font-medium text-slate-400 dark:text-stone-600">
+          <Icon name="ph:caret-left-bold" size={14} />
+          Newer
+        </span>
+      )}
+
+      <span class="shrink-0 font-mono text-slate-400 dark:text-stone-500">
+        Page {currentPage} / {lastPage}
+      </span>
+
+      {nextHref ? (
+        <a
+          rel="next"
+          href={nextHref}
+          class="inline-flex items-center gap-1.5 font-medium text-slate-700 transition-colors hover:text-primary-500 dark:text-stone-300 dark:hover:text-primary-400"
+        >
+          Older
+          <Icon name="ph:caret-right-bold" size={14} />
+        </a>
+      ) : (
+        <span class="inline-flex items-center gap-1.5 font-medium text-slate-400 dark:text-stone-600">
+          Older
+          <Icon name="ph:caret-right-bold" size={14} />
+        </span>
+      )}
+    </nav>
+  )
+}

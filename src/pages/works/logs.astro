@@ -1,19 +1,31 @@
 ---
 import BaseLayout from '@layouts/Base/BaseLayout.astro'
-import Header from '@components/Section/Header.astro'
-import GetWorklogs from '@components/Worklog/GetWorklogs.astro'
+import WorkLogsSection from '@components/Worklog/WorkLogsSection.astro'
 import CallToAction from '@components/HomePageSections/CallToAction.astro'
+import { getSortedWorklogs, PAGE_SIZE } from '../../lib/worklogs'
+
+const all = await getSortedWorklogs()
+const lastPage = Math.max(1, Math.ceil(all.length / PAGE_SIZE))
+const nextHref = lastPage > 1 ? '/works/logs/page/2' : undefined
+const canonical = new URL('/works/logs', Astro.site)
 
 const pageTitle = 'Work Logs'
 const pageDescription = 'Daily engineering work logs — a running record of what I built, fixed, and learned.'
 ---
 
-<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
-  <section>
-    <Header title="Work Logs" icon="ph:list-dashes" desc="Daily engineering logs — compact, date-anchored summaries of what got done." />
-
-    <GetWorklogs limit={30} />
-  </section>
+<BaseLayout
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  canonical={canonical}
+  nextHref={nextHref}
+  ogUrl={canonical}
+>
+  <WorkLogsSection
+    entries={all.slice(0, PAGE_SIZE)}
+    currentPage={1}
+    lastPage={lastPage}
+    nextHref={nextHref}
+  />
 
   <CallToAction />
 </BaseLayout>

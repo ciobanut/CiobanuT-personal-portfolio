@@ -1,36 +1,33 @@
 ---
 import { getCollection } from 'astro:content'
 import { resolveWorklogProjects, type ProjectRef } from '../../lib/projects'
+import { sortWorklogsDesc } from '../../lib/worklogs'
 
-const { limit, showStackBadges = false } = Astro.props
+const { entries, limit, showStackBadges = false } = Astro.props
 
-const allWorklogs = (await getCollection('worklogs'))
-  .sort((a, b) => {
-    // Parse DD-MM-YYYY for sorting
-    const [aD, aM, aY] = a.data.pubDate.split('-')
-    const [bD, bM, bY] = b.data.pubDate.split('-')
-    return new Date(bY, bM - 1, bD) - new Date(aY, aM - 1, aD)
-  })
+// Pre-sorted entries (e.g. a paginated slice from getStaticPaths) or fetch + sort ourselves.
+const allWorklogs = entries ?? sortWorklogsDesc(await getCollection('worklogs'))
+const visibleWorklogs = entries ?? allWorklogs.slice(0, limit || undefined)
 
-// Count stack frequency across all worklogs (before slicing)
-const stackFreq = new Map()
-for (const entry of allWorklogs) {
-  const stacks = entry.data.stack ?? []
-  for (const s of stacks) {
-    stackFreq.set(s, (stackFreq.get(s) ?? 0) + 1)
+// Order each entry's stacks by global frequency — only needed when badges are shown
+if (showStackBadges) {
+  const stackFreq = new Map()
+  for (const entry of allWorklogs) {
+    const stacks = entry.data.stack ?? []
+    for (const s of stacks) {
+      stackFreq.set(s, (stackFreq.get(s) ?? 0) + 1)
+    }
+  }
+
+  // Sort each entry's stacks by global frequency descending, then alphabetically
+  for (const entry of allWorklogs) {
+    const stacks = entry.data.stack ?? []
+    entry.data.stack = [...stacks].sort((a, b) => {
+      const freqDiff = (stackFreq.get(b) ?? 0) - (stackFreq.get(a) ?? 0)
+      return freqDiff !== 0 ? freqDiff : a.localeCompare(b)
+    })
   }
 }
-
-// Sort each entry's stacks by global frequency descending, then alphabetically
-for (const entry of allWorklogs) {
-  const stacks = entry.data.stack ?? []
-  entry.data.stack = [...stacks].sort((a, b) => {
-    const freqDiff = (stackFreq.get(b) ?? 0) - (stackFreq.get(a) ?? 0)
-    return freqDiff !== 0 ? freqDiff : a.localeCompare(b)
-  })
-}
-
-const visibleWorklogs = allWorklogs.slice(0, limit || undefined)
 
 // Resolve the friendly project name(s) for each worklog (via its GitHub repos)
 const projectsByEntry = new Map<string, ProjectRef[]>()

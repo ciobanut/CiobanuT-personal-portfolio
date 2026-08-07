@@ -11,7 +11,7 @@ import '../../styles/global.css'
 
 import config from '../../../config.js'
 
-let { pageTitle = '', pageDescription = '' } = Astro.props
+let { pageTitle = '', pageDescription = '', canonical, prevHref, nextHref, ogUrl } = Astro.props
 
 pageTitle += ' - ' + config.websiteName
 ---
@@ -36,11 +36,13 @@ pageTitle += ' - ' + config.websiteName
 		<SEO
 			title={pageTitle}
 			description={pageDescription}
+			canonical={canonical}
 			openGraph={{
 				basic: {
 					title: pageTitle,
 					type: 'website',
-					image: '/favicon.svg'
+					image: '/favicon.svg',
+					url: ogUrl
 				}
 			}}
 			extend={{
@@ -48,6 +50,9 @@ pageTitle += ' - ' + config.websiteName
 				meta: []
 			}}
 		/>
+
+		{prevHref && <link rel="prev" href={prevHref} />}
+		{nextHref && <link rel="next" href={nextHref} />}
 
 		<ClientRouter />
 

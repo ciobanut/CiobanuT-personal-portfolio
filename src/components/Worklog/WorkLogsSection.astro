@@ -1,0 +1,15 @@
+---
+import Header from '@components/Section/Header.astro'
+import GetWorklogs from '@components/Worklog/GetWorklogs.astro'
+import Pagination from '@components/Worklog/Pagination.astro'
+
+const { entries, currentPage, lastPage, prevHref, nextHref } = Astro.props
+---
+
+<section>
+  <Header title="Work Logs" icon="ph:list-dashes" desc="Daily engineering logs — compact, date-anchored summaries of what got done." />
+
+  <GetWorklogs entries={entries} />
+
+  <Pagination {currentPage} {lastPage} {prevHref} {nextHref} />
+</section>
